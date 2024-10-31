@@ -8,7 +8,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain.chat_groq import ChatGroq
+from langchain_groq import ChatGroq
 from langchain.document_loaders import PyPDFLoader
 from langchain.schema import HumanMessage, AIMessage
 import os
