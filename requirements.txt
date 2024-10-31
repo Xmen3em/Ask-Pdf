@@ -10,7 +10,6 @@ python-dotenv
 pypdf
 huggingface_hub
 pypdf2
-chromadb
-mlflow
+chromadb==0.3.22   # use the latest compatible version, check changelog if higher version needed
 protobuf==3.20.3
 opentelemetry-exporter-otlp
