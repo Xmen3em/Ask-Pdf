@@ -1,15 +1,14 @@
 import streamlit as st
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_chroma import Chroma
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_groq import ChatGroq
+from langchain.vectorstores import FAISS
+from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.chat_history import BaseChatMessageHistory, ChatMessageHistory
+from langchain.chat_groq import ChatGroq
+from langchain.document_loaders import PyPDFLoader
 from langchain.schema import HumanMessage, AIMessage
 import os
 from dotenv import load_dotenv
@@ -20,9 +19,6 @@ import tempfile
 load_dotenv()
 hf_token = os.getenv("HF_TOKEN")
 groq_api_key = os.getenv("GROQ_API_KEY")
-
-# Remove MLflow tracking setup as Streamlit Cloud may not support it
-# mlflow.set_tracking_uri("http://localhost:5000")
 
 # Set up embeddings using HuggingFace
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -56,13 +52,8 @@ if uploaded_files:
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=500)
     splits = text_splitter.split_documents(documents)
 
-    # Fetch persist directory from environment variables, with a default local path
-    persist_directory = os.getenv("CHROMA_PERSIST_DIR", "./chroma_storage")
-    os.makedirs(persist_directory, exist_ok=True)  # Ensure the directory exists
-
-    # Initialize Chroma with custom client settings
-    vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, use_memory=True)
-
+    # Initialize FAISS as the vector store
+    vectorstore = FAISS.from_documents(splits, embeddings)
     retriever = vectorstore.as_retriever()
 
     # Define the contextualized question prompt
@@ -78,7 +69,7 @@ if uploaded_files:
         ("human", "{input}"),
     ])
 
-    # Initialize the Groq model using the API key
+    # Initialize the LLM model (replace with your chosen LLM if needed)
     llm = ChatGroq(groq_api_key=groq_api_key, model_name="Gemma2-9b-It")
 
     # Create retriever and question-answer chain
