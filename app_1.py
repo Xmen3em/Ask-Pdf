@@ -25,7 +25,7 @@ groq_api_key = os.getenv("GROQ_API_KEY")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Set up Streamlit UI
-st.title("AskPdf: Conversational RAG with PDF Uploads and Chat History")
+st.title("AskPdf")
 st.write("Upload PDFs and ask questions about their content.")
 
 # Manage session state for chat history
