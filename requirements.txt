@@ -12,3 +12,5 @@ huggingface_hub
 pypdf2
 chromadb
 mlflow
+protobuf==3.20.3
+opentelemetry-exporter-otlp
