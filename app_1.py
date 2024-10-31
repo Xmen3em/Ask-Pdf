@@ -61,7 +61,8 @@ if uploaded_files:
     os.makedirs(persist_directory, exist_ok=True)  # Ensure the directory exists
 
     # Initialize Chroma with custom client settings
-    vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, persist_directory=persist_directory)
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, use_memory=True)
+
     retriever = vectorstore.as_retriever()
 
     # Define the contextualized question prompt
