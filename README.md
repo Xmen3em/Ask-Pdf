@@ -41,7 +41,7 @@ When you execute this script, the application will launch on a local server, and
 
 This work is based on the principle of Retrieval Augmentation Generation (RAG) which is an approach in the field of Natural Language Processing (NLP) that combines three key components: retrieval, augmentation, and generation. This approach is designed to improve the performance and capabilities of language models.
 
-![RAG Diagram](assets\image\RAG_diagram_dark.png)
+![RAG Diagram](/assets/image/RAG_diagram_dark.png)
 
 1. Documents and File Types: At the top, it shows a variety of document types (DOC, XLS, PPT, PDF) being ingested into the system, which matches your project since you're working with PDF documents as input for a retrieval system. 
 
