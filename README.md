@@ -13,7 +13,8 @@ You can use the power of a Large Language Model (LLM) along with a vector databa
 
 Built with Langchain, HuggingFace, Streamlit, FAISS vector database, and Sentence Transformers. Please see the below demo-
 
-https://github.com/Xmen3em/Ask-Pdf/issues/1#issue-2686196028
+![Watch the demo](https://github.com/Xmen3em/Ask-Pdf/issues/1#issue-2686196028)
+
 
 <h1 align="center"> Getting Started 🚶 </h1>
 
