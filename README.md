@@ -13,8 +13,7 @@ You can use the power of a Large Language Model (LLM) along with a vector databa
 
 Built with Langchain, HuggingFace, Streamlit, FAISS vector database, and Sentence Transformers. Please see the below demo-
 
-![Watch the demo](/assets/video/Screen%20Recording%202024-11-23%20170043%20(online-video-cutter.com).mp4)
-
+[![Watch the demo](https://img.shields.io/badge/Watch%20Demo-Video-red?style=for-the-badge)](https://vimeo.com/1032648830?share=copy)
 
 <h1 align="center"> Getting Started 🚶 </h1>
 
