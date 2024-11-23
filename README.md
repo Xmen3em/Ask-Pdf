@@ -13,7 +13,7 @@ You can use the power of a Large Language Model (LLM) along with a vector databa
 
 Built with Langchain, HuggingFace, Streamlit, FAISS vector database, and Sentence Transformers. Please see the below demo-
 
-https://github.com/Xmen3em/Ask-Pdf/blob/main/assets/video/Screen%20Recording%202024-11-23%20170043%20(online-video-cutter.com).mp4
+https://github.com/himanshu662000/InfoGPT/blob/main/assets/video/demo.mp4
 
 <h1 align="center"> Getting Started 🚶 </h1>
 
